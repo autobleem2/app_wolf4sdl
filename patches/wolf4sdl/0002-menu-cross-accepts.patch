@@ -1,0 +1,23 @@
+--- a/wl_menu.cpp
++++ b/wl_menu.cpp
+@@ -4023,10 +4023,20 @@
+         jb = IN_JoyButtons ();
+         if (jb)
+         {
++#ifndef _WIN32
++            // AutoBleem: the virtual pad shows the game the PlayStation Classic's own layout (pad.ini: Triangle
++            // 0, Circle 1, Cross 2, Square 3); in the menus Cross accepts and Circle goes back, as on the
++            // console. Only the menus read these (ReadAnyControl) - the game's own buttons are buttonjoy[].
++            ci->button0 = jb & 4;    // Cross: accept, "yes"
++            ci->button1 = jb & 2;    // Circle: back, "no"
++            ci->button2 = jb & 8;    // Square: backspace, where a name is typed
++            ci->button3 = jb & 1;    // Triangle
++#else
+             ci->button0 = jb & 1;
+             ci->button1 = jb & 2;
+             ci->button2 = jb & 4;
+             ci->button3 = jb & 8;
++#endif
+         }
+     }
+ }

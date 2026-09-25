@@ -15,7 +15,7 @@ Square               Open doors, use
 Triangle / Select    Next / previous weapon
 L1 / R1              Strafe left / right
 L2                   Pause
-R2 / Start           Menu
+R2 / Start           Menu (in the menus: Cross selects, Circle goes back)
 
 To leave the game: press Reset on the console, or hold Start + Select (the console, the Pi and the PC
 stick). On Windows: Start for the menu, then Quit.
