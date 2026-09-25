@@ -1,0 +1,3 @@
+[submodule "upstream/wolf4sdl"]
+	path = upstream/wolf4sdl
+	url = https://github.com/fabiangreffrath/wolf4sdl.git

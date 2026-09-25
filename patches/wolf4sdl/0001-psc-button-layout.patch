@@ -1,0 +1,37 @@
+diff --git a/wl_play.cpp b/wl_play.cpp
+index 69dcef0..d3ef092 100644
+--- a/wl_play.cpp
++++ b/wl_play.cpp
+@@ -53,9 +53,21 @@ boolean mouseenabled, joystickenabled;
+ int dirscan[4] = { sc_UpArrow, sc_RightArrow, sc_DownArrow, sc_LeftArrow };
+ int buttonscan[NUMBUTTONS] = { sc_Control, sc_Alt, sc_LShift, sc_Space, sc_1, sc_2, sc_3, sc_4 };
+ int buttonmouse[4] = { bt_attack, bt_strafe, bt_use, bt_nobutton };
++// AutoBleem: the PlayStation Classic port's layout (2020), filled out - Cross fire, Circle run, Square open,
++// Triangle next weapon, Select previous weapon, L1/R1 strafe, L2 pause, R2 and Start the menu.
++#ifdef _WIN32
++// Windows has no virtual pad: an XInput pad as SDL's joystick API numbers it (A B X Y LB RB Back Start); its
++// triggers are axes, so pause is in the menu
+ int buttonjoy[32] = {
+-    bt_attack, bt_strafe, bt_use, bt_run, bt_strafeleft, bt_straferight, bt_esc, bt_pause,
+-    bt_prevweapon, bt_nextweapon, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton,
++    bt_attack, bt_run, bt_use, bt_nextweapon, bt_strafeleft, bt_straferight, bt_prevweapon, bt_esc,
++    bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton,
++#else
++// Linux: the virtual pad in its PlayStation Classic layout (the App's pad.ini says virtual = psc), whatever the
++// pad - Triangle 0, Circle 1, Cross 2, Square 3, L2 4, R2 5, L1 6, R1 7, Select 8, Start 9, the D-pad on axes 0/1
++int buttonjoy[32] = {
++    bt_nextweapon, bt_run, bt_attack, bt_use, bt_pause, bt_esc, bt_strafeleft, bt_straferight,
++    bt_prevweapon, bt_esc, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton,
++#endif
+     bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton,
+     bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton, bt_nobutton
+ };
+@@ -205,7 +217,7 @@ int songs[] = {
+     XFUNKIE_MUS,
+     XDEATH_MUS,
+     XGETYOU_MUS,                // DON'T KNOW
+-    ULTIMATE_MUS,               // Trans Gr”sse
++    ULTIMATE_MUS,               // Trans Grï¿½sse
+ 
+     DUNGEON_MUS,
+     GOINGAFT_MUS,
