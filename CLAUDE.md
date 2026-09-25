@@ -51,4 +51,9 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
   programs ran on the dev PC on 2026-09-25 with only the Windows product's official SDL DLLs on PATH.
 - **Build on the server**: sync with MSYS2's rsync (excluding `/build_*`, `/dist`), then
   `docker run --rm -u $(id -u):$(id -g) -v $PWD:/src -w /src ghcr.io/autobleem2/autobleem-build:develop ci/build.sh all`.
-- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist).
+- **Releases**: a `v<version>` tag (`v20260504-1`) builds a stable GitHub release with all ten zips (in the
+  release image, `autobleem-build:latest`); `master` follows the released commit. The Store gets it by hand:
+  `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
+  `repo_publish.sh store <key> dist/store/<key>/*`. v20260504-1 went to all five catalogs on 2026-09-25 (two
+  items each), replacing the RetroBoot Wolf4SDL on psc.
+- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12).
