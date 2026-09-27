@@ -16,7 +16,7 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
 ## The owner's decisions for this port (2026-09-25)
 
 - **Upstream**: `fabiangreffrath/wolf4sdl` (the maintained SDL2 port), pinned at `a51c229e` (2026-05-04 - tag
-  `20251124` plus a HUD fix); the package version is that date, `20260504-1` (`VERSION`).
+  `20251124` plus a HUD fix); the package version is that date, `20260504-2` (`VERSION`).
 - **The 2020 layout, filled out**: Cross fire, Circle run, Square open, Triangle/Select next/previous weapon,
   L1/R1 strafe, L2 pause, R2/Start menu (`patches/wolf4sdl/0001-psc-button-layout.patch`, the `buttonjoy[]`
   defaults - the config file is binary, so defaults cannot ship as a file).
