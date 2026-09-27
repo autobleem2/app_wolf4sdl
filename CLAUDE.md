@@ -37,7 +37,8 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
 | `resources/<app>/` | `app.ini` (`Exec=bin/{key}/<program>`, `Args=--fullscreen --res 960 600 --configdir . --joystick 0`, `Args.win=` the same plus `--joystickhat 0` - the XInput D-pad is hat 0; no `Lib` - SDL2 and SDL2_mixer are the launcher's or the system's), `readme.txt`, `icon.png` |
 | `ci/build.sh` | `native|psc|rpi|rpi64|pcusb|win|all`: the data from our mirror (sha256-pinned), then for each App a copy of the source, the patch, and upstream's Makefile with a generated `CONFIG` file carrying `-DVERSIONALREADYCHOSEN` and the version defines. psc links SDL2_mixer by name (its `.pc` names a `vorbisfile.pc` the image does not have). Windows links libgcc, libstdc++ **and winpthread** statically. |
 | `tools/make_icons.py` | draws each icon from the game's own title screen, decoding VGAGRAPH as Wolf4SDL does (VGAHEAD offsets, VGADICT Huffman, the four-plane pictures); the chunk numbers (Wolfenstein 99 in `wolfpal.inc`'s palette; Spear 74+75 in its own palette, chunk 131) are the gfxv_*.h enums under each build's defines |
-| `tools/store_item.py`, `tools/check_psc_binary.sh`, `tools/check_needed.sh` | as in app_crispydoom |
+| `tools/store_item.py` | as in app_crispydoom |
+| `/opt/ab/tools/check_psc_binary.sh`, `/opt/ab/tools/check_needed.sh` (autobleem-build image) | no longer vendored (APPS-6) - as in app_crispydoom |
 
 ## Things to know
 
