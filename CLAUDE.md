@@ -58,4 +58,6 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
   `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
   `repo_publish.sh store <key> dist/store/<key>/*`. v20260504-1 went to all five catalogs on 2026-09-25 (two
   items each), replacing the RetroBoot Wolf4SDL on psc.
-- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12).
+- **Not yet run**: on a console, a Pi or the PC stick (the tester checklist, section 12). An early build
+  (-1) was started on a console on 2026-09-25; the fault found there is fixed in -2 (`79449b7`, Cross/Circle
+  in the menus), which has not run on a console yet.
