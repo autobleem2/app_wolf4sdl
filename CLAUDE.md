@@ -16,7 +16,7 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
 ## The owner's decisions for this port (2026-09-25)
 
 - **Upstream**: `fabiangreffrath/wolf4sdl` (the maintained SDL2 port), pinned at `a51c229e` (2026-05-04 - tag
-  `20251124` plus a HUD fix); the package version is that date, `20260504-2` (`VERSION`).
+  `20251124` plus a HUD fix); the package version is that date, `20260504-3` (`VERSION`).
 - **The 2020 layout, filled out**: Cross fire, Circle run, Square open, Triangle/Select next/previous weapon,
   L1/R1 strafe, L2 pause, R2/Start menu (`patches/wolf4sdl/0001-psc-button-layout.patch`, the `buttonjoy[]`
   defaults - the config file is binary, so defaults cannot ship as a file).
@@ -25,6 +25,10 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
   Wolf4SDL draws at a whole scale factor (`min(w/320, h/200)`), so 1280x720 got a 3x picture in the corner of
   its buffer, and `--resf` also turns the 4:3 correction off; with a 320x200 multiple the buffer is full and
   `SDL_RenderSetLogicalSize` scales it to any display at 4:3 (960x720 - exactly the console's height).
+
+- **Pad mode** (the owner, 2026-10-05, `20260504-3`): both `app.ini` carry `PadMode=psc-kernel` - "PSC pad (system)" in the
+  launcher's Game settings: "the pad works best on the PSC pad (system)". The user's own choice
+  (`ab_settings.ini`, exported as `AB_APP_PAD_MODE`) wins over it; `pad.ini` stays for launchers that ignore `PadMode=`.
 
 ## Layout
 
