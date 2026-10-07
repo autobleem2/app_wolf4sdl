@@ -55,6 +55,7 @@ def main(argv):
     item = {
         "id": "app/" + app,
         "kind": "app",
+        "category": "games",
         "title": info["title"],
         "version": version,
         "author": info["author"],
