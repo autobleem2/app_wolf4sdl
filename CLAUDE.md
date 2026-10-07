@@ -16,7 +16,7 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
 ## The owner's decisions for this port (2026-09-25)
 
 - **Upstream**: `fabiangreffrath/wolf4sdl` (the maintained SDL2 port), pinned at `a51c229e` (2026-05-04 - tag
-  `20251124` plus a HUD fix); the package version is that date, `20260504-3` (`VERSION`).
+  `20251124` plus a HUD fix); the package version is that date, `20260504-4` (`VERSION`).
 - **The 2020 layout, filled out**: Cross fire, Circle run, Square open, Triangle/Select next/previous weapon,
   L1/R1 strafe, L2 pause, R2/Start menu (`patches/wolf4sdl/0001-psc-button-layout.patch`, the `buttonjoy[]`
   defaults - the config file is binary, so defaults cannot ship as a file).
@@ -57,6 +57,7 @@ folder and id, so the Store updates it in place on psc. The SoD demo was the own
   programs ran on the dev PC on 2026-09-25 with only the Windows product's official SDL DLLs on PATH.
 - **Build on the server**: sync with MSYS2's rsync (excluding `/build_*`, `/dist`), then
   `docker run --rm -u $(id -u):$(id -g) -v $PWD:/src -w /src ghcr.io/autobleem2/autobleem-build:develop ci/build.sh all`.
+- **Category** (the owner, 2026-10-07): every `app.ini` carries `Category=games` (the launcher's Apps tab files an App by it: games, emulators, tools, media, other - any case) and `tools/store_item.py` writes `"category": "games"` into the Store item.
 - **Releases**: a `v<version>` tag (`v20260504-1`) builds a stable GitHub release with all ten zips (in the
   release image, `autobleem-build:latest`); `master` follows the released commit. The Store gets it by hand:
   `gh release download <tag>`, `tools/store_item.py` per zip, then autobleem-repo's
